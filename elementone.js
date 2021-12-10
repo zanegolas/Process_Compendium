@@ -1,20 +1,29 @@
 class ElementOne {
     constructor(x,y,r){
+        //initial x coordinate
         this.posX = x;
+        //initial y coordinate
         this.posY = y;
+        //radius passed in at creation of element
         this.radius = r;
+        //initial angle of movement in radians
         this.angle = random(TWO_PI);
-        this.speed = 2;
+        //speed at which element moves
+        this.speed = 0.5;
         this.age = 0;
         this.dead = false;
     }
 
+    //B1: Move in a straight line
     behavior1() {
+        //update x and y coordinates based on angle and speed
         this.posX += cos(this.angle) * this.speed;
-        this.posY += sin(this.angle) *this.speed;
+        this.posY += sin(this.angle) * this.speed;
     }
 
+    //B2: Constrain to surface
     behavior2() {
+        //keeps coordinates within canvas boundry
         this.posX = constrain( this.posX, 0, width);
         this.posY = constrain( this.posY, 0, height);
     }
